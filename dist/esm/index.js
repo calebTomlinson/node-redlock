@@ -280,6 +280,7 @@ export default class Redlock extends EventEmitter {
                 return { attempts, start };
             }
             // Wait before reattempting.
+            console.log("DEBUG attempts.length: ", attempts.length, " maxAttempts: ", maxAttempts);
             if (attempts.length < maxAttempts) {
                 await new Promise((resolve) => {
                     setTimeout(resolve, Math.max(0, settings.retryDelay +
